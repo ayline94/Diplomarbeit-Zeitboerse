@@ -1,56 +1,43 @@
 $(document).ready(function(){
 
-
-$(function(){
-    // Daten anzeigen
-    showdata();
-
-
-    //Daten speichern
-    $('#speichern').click(function(){
-        var vorname = $('#vorname').val();
-        var nachname = $('#nachname').val();
-
-
+    // Mitglieder anzeigen
+    function showData()
+    {
         $.ajax({
-            url : 'index.php',
-            type : 'POST',
-            async: false,
-            data: {
-                'saverecord' : 1,
-                'vorname'    :vorname,
-                'nachname'   :nachname
-            },
-            success:function(re)
-            {
-                if(re==0){
-                    alert("Daten wurden erfolgreich eingegeben");
-                    $('#vorname').val('');
-                    $('#nachname').val('');
-                    showdata();
-                }
+            url:"includes/show.php",
+            method:"POST",
+            success:function(data){
+                $('#showData').html(data);
             }
         });
-    });
-    // Daten speichern ende
-});
+    }
+    showData();
 
-function showdata()
-{
-    $.ajax({
-        url : "index.php",
-        type : 'POST',
-        async: false, // warum?
-        data: {
-            'show' : 1
-
-        },
-        success:function(data)
+    // Mitglieder hinzufügen
+    $(document).on('click', '#btn_add', function(){
+        var vorname = $('#vorname').val();
+        var nachname = $('#nachname').val();
+        if(vorname == '')
         {
-           $('#showdata').html(data);
+            alert("Bitte Vorname eingeben");
+            return false;
         }
-    })
-}
+        if(nachname == '')
+        {
+            alert("Bitte Nachnamen eingeben");
+            return false;
+        }
+        $.ajax({
+            url:"includes/insert.php",
+            method:"POST",
+            data:{vorname:vorname, nachname:nachname},
+            dataType:"text",
+            success:function(data)
+            {
+                alert(data);
+                showData();
+            }
+        })
+    });
 
-
-});// Document ready - end
+});
