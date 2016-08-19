@@ -4,7 +4,7 @@ $(document).ready(function(){
     function showData()
     {
         $.ajax({
-            url:"includes/show.php",
+            url:"api/mitglied/show.php",
             method:"POST",
             success:function(data){
                 $('#showData').html(data);
@@ -28,7 +28,7 @@ $(document).ready(function(){
             return false;
         }
         $.ajax({
-            url:"includes/insert.php",
+            url:"api/mitglied/insert.php",
             method:"POST",
             data:{vorname:vorname, nachname:nachname},
             dataType:"text",
@@ -39,5 +39,24 @@ $(document).ready(function(){
             }
         })
     });
+
+    // Mitglied löschen
+    $(document).on('click', '.btn_delete', function(){
+        var id=$(this).data("id3");
+        if(confirm("Möchtest du dieses Mitglied wirklich löschen?"))
+        {
+            $.ajax({
+                url:"api/mitglied/delete.php",
+                method:"POST",
+                data:{id:id},
+                dataType:"text",
+                success:function(data){
+                    alert(data);
+                    showData();
+                }
+            });
+        }
+    });
+
 
 });

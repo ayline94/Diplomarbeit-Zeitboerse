@@ -18,7 +18,7 @@
         <input type="text" id="vorname">
         <label for="nachname">Nachname:</label>
         <input type="text" id="nachname">
-        <button type="button" name="btn_add" id="btn_add" class="button">hinzufügen</button>
+        <button type="button" name="btn_add" id="btn_add" class="success button">hinzufügen</button>
     </div>
 
     <div class="column small-12">

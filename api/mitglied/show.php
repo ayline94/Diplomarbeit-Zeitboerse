@@ -4,7 +4,7 @@ include ("connect.php");
 // Tabellen Kopfzeile ausgeben
 $output = '';
 $output .= '
-       <table class="table table-bordered">
+       <table>
             <tr>
                  <th width="20%">Id</th>
                  <th width="40%">Vorname</th>
@@ -20,8 +20,9 @@ if(mysqli_num_rows($result) > 0)
         $output .= '
             <tr>
                  <td>'.$row["id"].'</td>
-                 <td class="first_name" data-id1="'.$row["id"].'" contenteditable>'.$row["vorname"].'</td>
-                 <td class="last_name" data-id2="'.$row["id"].'" contenteditable>'.$row["nachname"].'</td>
+                 <td class="vorname" data-id1="'.$row["id"].'" contenteditable>'.$row["vorname"].'</td>
+                 <td class="nachname" data-id2="'.$row["id"].'" contenteditable>'.$row["nachname"].'</td>
+                 <td><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="alert button btn_delete">x</button></td>
             </tr>
        ';
     }
