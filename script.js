@@ -58,5 +58,30 @@ $(document).ready(function(){
         }
     });
 
+    // Mitglied bearbeiten
+
+    function edit_data(id, text, column_name)
+    {
+        $.ajax({
+            url:"api/mitglied/edit.php",
+            method:"POST",
+            data:{id:id, text:text, column_name:column_name},
+            dataType:"text",
+            success:function(data){
+                alert(data);
+            }
+        });
+    }
+    $(document).on('blur', '.vorname', function(){
+        var id = $(this).data("id1");
+        var vorname = $(this).text();
+        edit_data(id, vorname, "vorname");
+    });
+    $(document).on('blur', '.nachname', function(){
+        var id = $(this).data("id2");
+        var nachname = $(this).text();
+        edit_data(id,nachname, "nachname");
+    });
+
 
 });
