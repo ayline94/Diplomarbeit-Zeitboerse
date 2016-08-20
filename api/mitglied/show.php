@@ -1,5 +1,5 @@
 <?php
-include ("connect.php");
+include ("../connect.php");
 
 // Tabellen Kopfzeile ausgeben
 $output = '';
@@ -39,4 +39,7 @@ else
 // Tabelle schliessen & ausgeben
 $output .= '</table>';
 echo $output;
+
+
+mysqli_close($connect);
 ?>
