@@ -1,6 +1,7 @@
 <?php
 // Verbindung zu DB herstellen
-$connect = mysqli_connect("localhost","root","root","zeitboerse"); //or die("Verbindung zu DB fehlgeschlagen");
+$connect = mysqli_connect("localhost","root","root","zeitboerse01");
+
 // Verbindung prüfen
 if (mysqli_connect_errno())
 {
