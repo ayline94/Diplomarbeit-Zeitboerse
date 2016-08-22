@@ -17,7 +17,10 @@
     <div class="column small-12">
         <h2>Login</h2>
 
-             <br />
+
+
+            <div id="box">
+                <br />
              <form method="post">
 
                        <label for="email">Email</label>
@@ -30,9 +33,14 @@
 
                        <input type="button" name="login" id="login" class="success button" value="Anmelden" />
 
-                  <div id="error"></div>
+                 <div id="error" class="alert callout">
+                     <p>Anmeldedaten sind falsch.</p>
+                 </div>
+
              </form>
-             <br />
+                <br />
+            </div>
+
     </div>
 
     <div class="column small-12">

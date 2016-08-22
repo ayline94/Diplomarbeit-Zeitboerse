@@ -12,22 +12,27 @@ $(document).ready(function(){
                 method:"POST",
                 data:{email:email, passwort:passwort},
                 cache: false,
+                beforeSend:function()
+                {
+                    $('#login').val("Daten werden überprüft");
+                },
                 success:function(data)
                 {
                     if(data)
                     {
-                        $("body").load("benutzer.php").hide().fadeIn();
+                        $("body").load("benutzer.php").hide().fadeIn(1500);
                     }
-                    else
-                    {
-                        alert('Daten fehlerhaft');
+                    else {
+
+                        $("#error").fadeIn(500);
+                        $('#login').val("Anmelden");
                     }
                 }
             });
         }
         else
         {
-            alert('Bitte Felder ausfüllen');
+            $("#error").fadeIn(500);
             return false;
         }
     });

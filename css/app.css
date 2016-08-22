@@ -2,5 +2,11 @@
 th {text-align: left;}
 
 
+/* Anmeldung */
+
+#error {
+    display: none;
+}
+
 
 /* Angebote */
