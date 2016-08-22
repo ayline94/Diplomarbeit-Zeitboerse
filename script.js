@@ -1,6 +1,39 @@
 $(document).ready(function(){
 
-    // Mitglieder anzeigen
+    // Anmelden
+    $('#login').click(function(){
+        var email = $('#email').val();
+        var passwort = $('#passwort').val();
+
+        if($.trim(email).length > 0 && $.trim(passwort).length > 0) // Weissraum entfernen & checken ob nicht leer
+        {
+            $.ajax({
+                url:"api/mitglied/login.php",
+                method:"POST",
+                data:{email:email, passwort:passwort},
+                cache: false,
+                success:function(data)
+                {
+                    if(data)
+                    {
+                        $("body").load("benutzer.php").hide().fadeIn();
+                    }
+                    else
+                    {
+                        alert('Daten fehlerhaft');
+                    }
+                }
+            });
+        }
+        else
+        {
+            alert('Bitte Felder ausfüllen');
+            return false;
+        }
+    });
+
+
+// Mitglieder anzeigen
     function showData()
     {
         $.ajax({
@@ -17,6 +50,12 @@ $(document).ready(function(){
     $(document).on('click', '#btn_add', function(){
         var vorname = $('#vorname').val();
         var nachname = $('#nachname').val();
+        var email = $('#email').val();
+        var passwort = $('#passwort').val();
+
+
+
+        // Überprüfung der Felder
         if(vorname == '')
         {
             alert("Bitte Vorname eingeben");
@@ -27,10 +66,22 @@ $(document).ready(function(){
             alert("Bitte Nachnamen eingeben");
             return false;
         }
+        if(email == '')
+        {
+            alert("Bitte Email eingeben");
+            return false;
+        }
+        if(passwort == '')
+        {
+            alert("Bitte Passwort eingeben");
+            return false;
+        }
+
+
         $.ajax({
             url:"api/mitglied/insert.php",
             method:"POST",
-            data:{vorname:vorname, nachname:nachname},
+            data:{vorname:vorname, nachname:nachname, email:email, passwort:passwort},
             dataType:"text",
             success:function(data)
             {

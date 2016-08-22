@@ -1,6 +1,14 @@
 <?php
 include ("../connect.php");
-if(mysqli_query($connect, "INSERT INTO mitglieder(vorname, nachname) VALUES('".$_POST["vorname"]."', '".$_POST["nachname"]."')"))
+
+$email = mysqli_real_escape_string($connect, $_POST["email"]); // unterschied herausfinden
+$email1 = $_POST["email"]; // Unterschied herausfinden
+
+$passwort = md5(mysqli_real_escape_string($connect, $_POST["passwort"])); // Passwort verschlüsseln
+
+$sql = "INSERT INTO mitglieder(vorname, nachname, email, passwort) VALUES('".$_POST["vorname"]."', '".$_POST["nachname"]."', '".$email."', '".$passwort."')";
+
+if(mysqli_query($connect, $sql))
 {
     echo 'Neues Mitglied wurde hinzugefügt';
 } else {

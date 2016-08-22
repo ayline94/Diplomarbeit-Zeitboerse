@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION["email"]))
+{
+    header("location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,9 +27,10 @@
         <li><a href="suchanfrage.php">Suchanfrage</a></li>
         <li><a href="mitglieder.php">Mitgliederliste</a></li>
         <li><a href="benutzer.php">Benutzeraccount</a></li>
-        <li><a href="#">Abmelden</a></li>
+        <li><a href="logout.php">Abmelden</a></li>
     </ul>
 
 </div>
+
 
 <div class="row">

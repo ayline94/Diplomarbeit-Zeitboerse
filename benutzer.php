@@ -1,6 +1,12 @@
+<?php
+session_start();?>
+
+
 <?php include('header.php'); ?>
 
     <div class="column small-12">
+
+
         <h2>Mitglied Detailansicht</h2>
 
 
