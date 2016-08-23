@@ -96,6 +96,35 @@ $(document).ready(function(){
         })
     });
 
+
+    // Mitglied suchen
+
+
+    $('#search_text').keyup(function(){
+        var txt = $(this).val();
+        if(txt != '')
+        {
+            $.ajax({
+                url:"api/mitglied/search.php",
+                method:"post",
+                data:{search:txt},
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#showData').html(data);
+                }
+            });
+        }
+        else
+        {
+            showData();
+        }
+    });
+
+
+
+
+
     // Mitglied löschen
     $(document).on('click', '.btn_delete', function(){
         var id=$(this).data("id3");

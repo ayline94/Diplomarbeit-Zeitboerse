@@ -14,7 +14,7 @@ if(!isset($_SESSION["email"]))
     <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="script.js"></script>
+    <script src="mitgliedergit.js"></script>
 
 </head>
 
