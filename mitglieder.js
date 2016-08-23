@@ -37,19 +37,21 @@ $(document).ready(function(){
         }
     });
 
-
-// Mitglieder anzeigen
-    function showData()
-    {
+    // Mitglieder - Prüfen ob Email bereits vorhanden & gültig
+    $('#email').blur(function(){
+        var email = $(this).val();
         $.ajax({
-            url:"api/mitglied/show.php",
+            url:"api/mitglied/check.php",
             method:"POST",
-            success:function(data){
-                $('#showData').html(data);
+            data:{email:email},
+            dataType:"text",
+            success:function(html)
+            {
+                $('#availability').html(html);
             }
         });
-    }
-    showData();
+    });
+
 
     // Mitglieder hinzufügen
     $(document).on('click', '#btn_add', function(){
@@ -57,7 +59,6 @@ $(document).ready(function(){
         var nachname = $('#nachname').val();
         var email = $('#email').val();
         var passwort = $('#passwort').val();
-
 
 
         // Überprüfung der Felder
@@ -96,6 +97,19 @@ $(document).ready(function(){
         })
     });
 
+
+// Mitglieder anzeigen
+    function showData()
+    {
+        $.ajax({
+            url:"api/mitglied/show.php",
+            method:"POST",
+            success:function(data){
+                $('#showData').html(data);
+            }
+        });
+    }
+    showData();
 
     // Mitglied suchen
 

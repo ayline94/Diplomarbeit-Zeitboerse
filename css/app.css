@@ -8,5 +8,11 @@ th {text-align: left;}
     display: none;
 }
 
+/* Registrierung */
+
+.form-error {
+    border-bottom: red solid 2px;
+
+}
 
 /* Angebote */
