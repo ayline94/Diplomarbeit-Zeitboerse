@@ -53,25 +53,8 @@ $(document).ready(function(){
     });
 
 
-    // Bild upload & anzeigen
-    $('#form_upload_bild').on('submit', function(e){
-        e.preventDefault(); // verhindert Default Event
-        $.ajax({
-            url:"upload.php",
-            method:"POST",
-            data:new FormData(this),
-            contentType:false, //keinen Contentyp senden
-            processData:false, // False da sonst als Obejekt gesendet, mit False wird es als string gesendet
-            success:function(data)
-            {
-                $('#bild_vorschau').html(data);
+    //------------- Mitglieder hinzufügen-------------------------//
 
-            }
-        })
-    });
-
-
-    // Mitglieder hinzufügen
     $(document).on('click', '#btn_add_mitglied', function(){
         var vorname = $('#vorname').val();
         var nachname = $('#nachname').val();
@@ -122,8 +105,51 @@ $(document).ready(function(){
         })
     });
 
+    // Bild upload & anzeigen
+    $('#form_upload_bild').on('submit', function(e){
+        e.preventDefault(); // verhindert Default Event
+        $.ajax({
+            url:"upload_image.php",
+            method:"POST",
+            data:new FormData(this),
+            contentType:false, //keinen Contentyp senden
+            processData:false, // False da sonst als Obejekt gesendet, mit False wird es als string gesendet
+            success:function(data)
+            {
+                $('#bild_vorschau').html(data);
 
-// Mitglieder anzeigen
+            }
+        })
+    });
+    //Bild löschen
+    $(document).on('click', '#remove_button', function(){
+        if(confirm("Bild wirklich löschen?"))
+        {
+            var path = $('.profilbild').data("path");
+            $.ajax({
+                url:"delete_image.php",
+                type:"POST",
+                data:{path:path},
+                success:function(data){
+                    if(data != '')
+                    {
+                        $('#bild_vorschau').html('');
+                    }
+                }
+            });
+        }
+        else
+        {
+            return false;
+        }
+    });
+
+
+
+    //------------- Mitglieder hinzufügen Ende -------------------------//
+
+
+    // Mitglieder anzeigen
     function showData()
     {
         $.ajax({
