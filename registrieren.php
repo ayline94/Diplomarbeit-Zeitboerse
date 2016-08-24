@@ -28,9 +28,21 @@
         <label for="passwort">Passwort</label>
         <input type="password" id="passwort">
 
-        <button type="button" name="btn_add" id="btn_add" class="success button">hinzufügen</button>
+        <button type="button" name="btn_add_mitglied" id="btn_add_mitglied" class="success button">hinzufügen</button>
     </div>
 
+    <div class="column small-6">
+
+        <form id="form_upload_bild" action="upload.php" method="post">
+            <label for="profilbild">Bild Auswahl - jpg, jpeg, png </label>
+            <input type="file" name="file" id="profilbild" />
+            <input type="submit" name="bild_upload_button" class="button" value="hochladen & anzeigen" />
+        </form>
+        <br />
+        <div id="bild_vorschau">
+        </div>
+
+    </div>
 
 
     <div class="column small-12">

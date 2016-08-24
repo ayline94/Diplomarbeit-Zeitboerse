@@ -26,7 +26,6 @@
                        <label for="email">Email</label>
                        <input type="text" name="email" id="email" />
 
-
                        <label for="passwort">Passwort</label>
                        <input type="password" name="passwort" id="passwort" />
 

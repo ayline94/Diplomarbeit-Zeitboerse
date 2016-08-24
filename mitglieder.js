@@ -45,23 +45,42 @@ $(document).ready(function(){
             method:"POST",
             data:{email:email},
             dataType:"text",
-            success:function(html)
+            success:function(data)
             {
-                $('#availability').html(html);
+                $('#availability').html(data);
             }
         });
     });
 
 
+    // Bild upload & anzeigen
+    $('#form_upload_bild').on('submit', function(e){
+        e.preventDefault(); // verhindert Default Event
+        $.ajax({
+            url:"upload.php",
+            method:"POST",
+            data:new FormData(this),
+            contentType:false, //keinen Contentyp senden
+            processData:false, // False da sonst als Obejekt gesendet, mit False wird es als string gesendet
+            success:function(data)
+            {
+                $('#bild_vorschau').html(data);
+
+            }
+        })
+    });
+
+
     // Mitglieder hinzufügen
-    $(document).on('click', '#btn_add', function(){
+    $(document).on('click', '#btn_add_mitglied', function(){
         var vorname = $('#vorname').val();
         var nachname = $('#nachname').val();
         var email = $('#email').val();
         var passwort = $('#passwort').val();
-
+        var profilbild = $('.profilbild').data("path");
 
         // Überprüfung der Felder
+
         if(vorname == '')
         {
             alert("Bitte Vorname eingeben");
@@ -83,11 +102,17 @@ $(document).ready(function(){
             return false;
         }
 
+        if(profilbild == '')
+        {
+            alert("Bitte Passwort eingeben");
+            return false;
+        }
+
 
         $.ajax({
             url:"api/mitglied/insert.php",
             method:"POST",
-            data:{vorname:vorname, nachname:nachname, email:email, passwort:passwort},
+            data:{vorname:vorname, nachname:nachname, email:email, passwort:passwort, profilbild:profilbild},
             dataType:"text",
             success:function(data)
             {
@@ -112,8 +137,6 @@ $(document).ready(function(){
     showData();
 
     // Mitglied suchen
-
-
     $('#search_text').keyup(function(){
         var txt = $(this).val();
         if(txt != '')
@@ -134,8 +157,6 @@ $(document).ready(function(){
             showData();
         }
     });
-
-
 
 
 
