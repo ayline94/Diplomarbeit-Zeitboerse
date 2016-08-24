@@ -27,13 +27,21 @@
         <span id="availability"></span>
         <label for="passwort">Passwort</label>
         <input type="password" id="passwort">
+        <label for="geburtsdatum">Geburtsdatum</label>
+        <input type="date" id="geburtsdatum" placeholder="0000-00-00">
+        <label for="strasse">Strasse & Hausnummer</label>
+        <input type="text" id="strasse">
+        <label for="plz">PLZ</label>
+        <input type="text" id="plz">
+        <label for="ort">Ort</label>
+        <input type="text" id="ort">
 
         <button type="button" name="btn_add_mitglied" id="btn_add_mitglied" class="success button">hinzufügen</button>
     </div>
 
     <div class="column small-6">
 
-        <form id="form_upload_bild" action="upload.php" method="post">
+        <form id="form_upload_bild" action="upload_image.php" method="post">
             <label for="profilbild">Bild Auswahl - jpg, jpeg, png </label>
             <input type="file" name="file" id="profilbild" />
             <input type="submit" name="bild_upload_button" class="button" value="hochladen & anzeigen" />

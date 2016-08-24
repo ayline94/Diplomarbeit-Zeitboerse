@@ -56,52 +56,39 @@ $(document).ready(function(){
     //------------- Mitglieder hinzufügen-------------------------//
 
     $(document).on('click', '#btn_add_mitglied', function(){
+
+        // Definition Felder
         var vorname = $('#vorname').val();
         var nachname = $('#nachname').val();
         var email = $('#email').val();
         var passwort = $('#passwort').val();
+        var geburtsdatum = $('#geburtsdatum').val();
+        var strasse = $('#strasse').val();
+        var plz = $('#plz').val();
+        var ort = $('#ort').val();
         var profilbild = $('.profilbild').data("path");
-
-        // Überprüfung der Felder
-
-        if(vorname == '')
-        {
-            alert("Bitte Vorname eingeben");
-            return false;
-        }
-        if(nachname == '')
-        {
-            alert("Bitte Nachnamen eingeben");
-            return false;
-        }
-        if(email == '')
-        {
-            alert("Bitte Email eingeben");
-            return false;
-        }
-        if(passwort == '')
-        {
-            alert("Bitte Passwort eingeben");
-            return false;
-        }
-
-        if(profilbild == '')
-        {
-            alert("Bitte Passwort eingeben");
-            return false;
-        }
-
 
         $.ajax({
             url:"api/mitglied/insert.php",
             method:"POST",
-            data:{vorname:vorname, nachname:nachname, email:email, passwort:passwort, profilbild:profilbild},
+            data:{
+                vorname:vorname,
+                nachname:nachname,
+                email:email,
+                passwort:passwort,
+                geburtsdatum:geburtsdatum,
+                strasse:strasse,
+                plz:plz,
+                ort:ort,
+                profilbild_pfad:profilbild
+            },
             dataType:"text",
             success:function(data)
             {
                 alert(data);
                 showData();
             }
+
         })
     });
 
@@ -143,8 +130,6 @@ $(document).ready(function(){
             return false;
         }
     });
-
-
 
     //------------- Mitglieder hinzufügen Ende -------------------------//
 

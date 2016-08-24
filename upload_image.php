@@ -10,12 +10,10 @@ if($_FILES['file']['name'] != '')
         if(move_uploaded_file($_FILES['file']['tmp_name'], $pfad)) //Bild in Verzeichnis laden
         {
             echo '
-                     <div class="small-6">
-                          <img data-path="'.$pfad.'" src="'.$pfad.'" class="profilbild" />
-                          <button type="button" id="remove_button" class="button alert">x</button>
-                     </div>
+                  <img data-path="'.$pfad.'" src="'.$pfad.'" class="profilbild" /><br><br>
+                  <button type="button" id="remove_button" class="button alert">x</button>
 
-                     ';
+                   ';
         }
     }
     else
