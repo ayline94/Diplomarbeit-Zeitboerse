@@ -215,4 +215,23 @@ $(document).ready(function(){
     });
 
 
+    //-------- Mitglieder Detailansicht -----------------//
+
+
+    // Detailansicht anzeigen
+
+    // Mitglieder anzeigen
+    function showMitgliedDetail()
+    {
+        $.ajax({
+            url:"api/mitglied/show-detail.php",
+            method:"POST",
+            success:function(data){
+                $('#showMitgliedDetail').html(data);
+            }
+        });
+    }
+    showMitgliedDetail();
+
+
 });

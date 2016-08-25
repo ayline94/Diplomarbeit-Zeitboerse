@@ -33,4 +33,3 @@ if(!isset($_SESSION["email"]))
 </div>
 
 
-<div class="row">

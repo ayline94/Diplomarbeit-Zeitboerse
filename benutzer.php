@@ -1,18 +1,26 @@
 <?php
-session_start();?>
+session_start();
+require("api/mitglied/functions.php");
 
+?>
 
 <?php include('header.php'); ?>
 
-    <div class="column small-12">
+<div class="row">
 
-
+    <div class="small-12">
         <h2>Mitglied Detailansicht</h2>
 
-
-        <button class="button">Bearbeiten</button>
-
     </div>
+
+</div>
+
+<div class="row" id="showMitgliedDetail">
+
+</div>
+
+<div class="row">
+
 
     <div class="column small-12">
         <h2>Meine Angebote</h2>
@@ -23,6 +31,8 @@ session_start();?>
         <button class="button">hinzufügen</button><br><button class="button">bearbeiten</button><br><button class="button">löschen</button>
 
     </div>
+
+</div>
 
 
 <?php include('footer.php'); ?>

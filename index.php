@@ -1,3 +1,13 @@
+<?php
+
+// Session starten, um sie danach zu beenden, leerer array als Sicherheit
+session_start();
+session_destroy();
+$_SESSION = array();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
