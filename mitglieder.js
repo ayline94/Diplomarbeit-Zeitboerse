@@ -131,7 +131,7 @@ $(document).ready(function(){
         }
     });
 
-    //------------- Mitgliederlist -------------------------//
+    //------------- Mitgliederliste -------------------------//
 
 
     // Mitglieder anzeigen
@@ -169,10 +169,17 @@ $(document).ready(function(){
         }
     });
 
+    //-------- Mitglied Detailansicht -----------------//
 
 
+    // Detailansicht Mitglied anzeigen
+    $(document).on('click', '#openMitglied', function(){
+        var id = $(this).parent().parent().data('id');
+        alert(id);
 
-    //-------- Mitglieder Detailansicht -----------------//
+
+    });
+
 
 
     // Detailansicht Mitglied anzeigen
@@ -187,6 +194,22 @@ $(document).ready(function(){
         });
     }
     showMitgliedDetail();
+
+    //-------- Benutzerkonto -----------------//
+
+
+    // Detailansicht Mitglied anzeigen
+    function showUser()
+    {
+        $.ajax({
+            url:"api/mitglied/show-user.php",
+            method:"POST",
+            success:function(data){
+                $('#showUser').html(data);
+            }
+        });
+    }
+    showUser();
 
 
     // Detailansicht Mitglied - Bearbeitungsmodus

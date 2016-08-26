@@ -16,12 +16,16 @@ $output .= '
     {
     while($row = mysqli_fetch_array($result))
     {
+
+    $id = $row['id'];
+
     $output .= '
-    <tr data-id="\'.$row["id"].\'" >
+    <tr class="mitglied mitglied-'.$id.'" data-id="'.$id.'" >
         <td class="profilbild" ><img class="profilbild" src=" '.$row["profilbild_pfad"].' "></td>
         <td class="vorname">'.$row["vorname"].'</td>
         <td class="nachname">'.$row["nachname"].'</td>
         <td class="ort">'.$row["ort"].' </td>
+        <td><button class="button" id="openMitglied">Detail</button></td>
     </tr>
     ';
     }

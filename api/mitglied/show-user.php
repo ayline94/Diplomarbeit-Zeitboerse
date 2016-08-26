@@ -1,9 +1,8 @@
 <?php
 session_start();
+
 include ("../connect.php");
 require("functions.php");
-
-if(isset($_SESSION['email'])):
 
 // Benutzerdaten von aktueller Session anzeigen
 $id = getId($_SESSION['email']);
@@ -62,9 +61,6 @@ $output .= '
 
 // Tabelle ausgeben
 echo $output;
-
-endif;
-
 
 
 mysqli_close($connect);

@@ -38,6 +38,21 @@ function getUserData($id){
 
 }
 
+function userExists($id)
+{
+    $connect = mysqli_connect("localhost","root","root","zeitboerse01");
+
+    $sql = 'SELECT id FROM mitglieder WHERE id = "'.$id.'"';
+    $result = mysqli_query($connect, $sql );
+    $numrows = mysqli_num_rows($result);
+    if($numrows==1)
+        return true;
+    else
+        return false;
+
+
+}
+
 
 
 ?>
