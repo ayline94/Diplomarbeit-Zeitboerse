@@ -18,39 +18,40 @@ $output .= '
             <img src="'.$mitgliederData["profilbild_pfad"].'">
  </div>
 <div class="small-7 columns">
-    <table>
+    <table class="benutzerinfo" data-id="'.$id.'">
         <tr>
             <th colspan="2" width="100%"><h3>Benutzerinformationen</h3></th>
         </tr>
         <tr>
             <td>Vorname</td>
-            <td class="vorname" data-id1="'.$id.'">'.$mitgliederData["vorname"].'</td>
+            <td class="vorname benutzerdaten">'.$mitgliederData["vorname"].'</td>
         </tr>
         <tr>
             <td>Nachname</td>
-            <td class="nachname" data-id2="'.$id.'">'.$mitgliederData["nachname"].'</td>
+            <td class="nachname benutzerdaten">'.$mitgliederData["nachname"].'</td>
         </tr>
         <tr>
             <td>Email</td>
-            <td class="email" data-id2="'.$id.'">'.$mitgliederData["email"].'</td>
+            <td class="email benutzerdaten">'.$mitgliederData["email"].'</td>
         </tr>
         <tr>
             <td>Geburtsdatum</td>
-            <td class="geburtsdatum" data-id2="'.$id.'">'.$mitgliederData["geburtsdatum"].'</td>
+            <td class="geburtsdatum benutzerdaten">'.$mitgliederData["geburtsdatum"].'</td>
         </tr>
         <tr>
             <td>Strasse & Hausnummer</td>
-            <td class="strasse" data-id2="'.$id.'">'.$mitgliederData["strasse"].'</td>
+            <td class="strasse benutzerdaten">'.$mitgliederData["strasse"].'</td>
         </tr>
         <tr>
             <td>PLZ</td>
-            <td class="strasse" data-id2="'.$id.'">'.$mitgliederData["plz"].'</td>
+            <td class="plz benutzerdaten">'.$mitgliederData["plz"].'</td>
         </tr>
         <tr>
             <td>Ort</td>
-            <td class="ort" data-id2="'.$id.'">'.$mitgliederData["ort"].'</td>
+            <td class="ort benutzerdaten">'.$mitgliederData["ort"].'</td>
         </tr>
     </table>
+
 </div>
     ';
 

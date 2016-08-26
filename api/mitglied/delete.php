@@ -2,7 +2,7 @@
 include ("../connect.php");
 if(mysqli_query($connect, "DELETE FROM mitglieder WHERE id = '".$_POST["id"]."'"))
 {
-    echo 'Mitglied wurde gelöscht';
+    echo 'Dein Account wurde Gelöscht';
 } else {
     echo 'Fehler beim Löschen des Mitglieds';
 }

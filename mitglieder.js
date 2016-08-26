@@ -171,56 +171,15 @@ $(document).ready(function(){
 
 
 
-    // Mitglied löschen
-    $(document).on('click', '.btn_delete', function(){
-        var id=$(this).data("id3");
-        if(confirm("Möchtest du dieses Mitglied wirklich löschen?"))
-        {
-            $.ajax({
-                url:"api/mitglied/delete.php",
-                method:"POST",
-                data:{id:id},
-                dataType:"text",
-                success:function(data){
-                    alert(data);
-                    showData();
-                }
-            });
-        }
-    });
 
-    // Mitglied bearbeiten
 
-    function edit_data(id, text, column_name)
-    {
-        $.ajax({
-            url:"api/mitglied/edit.php",
-            method:"POST",
-            data:{id:id, text:text, column_name:column_name},
-            dataType:"text",
-            success:function(data){
-                alert(data);
-            }
-        });
-    }
-    $(document).on('blur', '.vorname', function(){
-        var id = $(this).data("id1");
-        var vorname = $(this).text();
-        edit_data(id, vorname, "vorname");
-    });
-    $(document).on('blur', '.nachname', function(){
-        var id = $(this).data("id2");
-        var nachname = $(this).text();
-        edit_data(id,nachname, "nachname");
-    });
+
 
 
     //-------- Mitglieder Detailansicht -----------------//
 
 
-    // Detailansicht anzeigen
-
-    // Mitglieder anzeigen
+    // Detailansicht Mitglied anzeigen
     function showMitgliedDetail()
     {
         $.ajax({
@@ -232,6 +191,96 @@ $(document).ready(function(){
         });
     }
     showMitgliedDetail();
+
+
+    // Detailansicht Mitglied - Bearbeitungsmodus
+    $('#editMitglied').on('click', function(){
+
+        $('.benutzerdaten').addClass('edit');
+        $('.edit').attr("contenteditable","true");
+
+        // Save & Delete Button einblenden
+        $('#saveMitglied').removeClass('hide');
+        $('#deleteMitglied').removeClass('hide');
+        $('#editMitglied').addClass('hide');
+
+    });
+
+
+    // Detailansicht Mitglied - Änderungen speichern
+    $('#saveMitglied').on('click', function(){
+
+        var id = $('.benutzerinfo').data('id');
+        var vorname = $('.vorname').text();
+        var nachname = $('.nachname').text();
+        var email = $('.email').text();
+        //var passwort = $('.passwort').text();
+        var geburtsdatum = $('.geburtsdatum').text();
+        var strasse = $('.strasse').text();
+        var plz = $('.plz').text();
+        var ort = $('.ort').text();
+        //var profilbild = $('.profilbild').data("path");
+
+        $('.edit').attr('contenteditable','false');
+
+        $.ajax({
+            url:"api/mitglied/edit.php",
+            method:"POST",
+            data:{
+                id:id,
+                vorname:vorname,
+                nachname:nachname,
+                email:email,
+                //passwort:passwort,
+                geburtsdatum:geburtsdatum,
+                strasse:strasse,
+                plz:plz,
+                ort:ort
+                //profilbild_pfad:profilbild
+            },
+            dataType:"text",
+            success:function(data)
+            {
+                alert(data);
+                showData();
+
+                $('.benutzerdaten').removeClass('edit');
+                $('#editMitglied').removeClass('hide');
+                $('#saveMitglied').addClass('hide');
+                $('#deleteMitglied').addClass('hide');
+            }
+
+        })
+
+    });
+
+    // Detailansicht Mitglied Löschen
+    $(document).on('click', '.deleteMitglied', function(){
+        var id = $('.benutzerinfo').data('id');
+        if(confirm("Willst du deinen Benutzeraccount wirklich löschen?"))
+        {
+            $.ajax({
+                url:"api/mitglied/delete.php",
+                method:"POST",
+                data:{id:id},
+                dataType:"text",
+                success:function(data){
+                    alert(data);
+
+                    if(data=='Dein Account wurde Gelöscht'){
+                        $("body").load("index.php").hide().fadeIn(1500);
+
+                    }
+                }
+            });
+        }
+    });
+
+
+
+
+
+
 
 
 });

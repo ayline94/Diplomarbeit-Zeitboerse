@@ -1,5 +1,22 @@
+/* Allgemein */
+.hide {
+    display: none;
+}
+
+
+h2 {
+    display: inline-block;
+}
+
+
 /* Mitglieder */
 th {text-align: left;}
+
+/* Mitglieder Detailansicht*/
+.edit {
+    background-color: #ffffff;
+    border: solid #000000 1px;
+}
 
 
 /* Anmeldung */
