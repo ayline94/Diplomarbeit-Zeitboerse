@@ -8,6 +8,7 @@ $output .= '
         <th width="20%">Id</th>
         <th width="40%">Vorname</th>
         <th width="40%">Nachname</th>
+        <th width="40%">Ort</th>
     </tr>';
 
     // Mitglieder ausgeben
@@ -16,11 +17,11 @@ $output .= '
     while($row = mysqli_fetch_array($result))
     {
     $output .= '
-    <tr>
-        <td>'.$row["id"].'</td>
-        <td class="vorname" data-id1="'.$row["id"].'" contenteditable>'.$row["vorname"].'</td>
-        <td class="nachname" data-id2="'.$row["id"].'" contenteditable>'.$row["nachname"].'</td>
-        <td><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="alert button btn_delete">x</button></td>
+    <tr data-id="\'.$row["id"].\'" >
+        <td class="profilbild" ><img class="profilbild" src=" '.$row["profilbild_pfad"].' "></td>
+        <td class="vorname">'.$row["vorname"].'</td>
+        <td class="nachname">'.$row["nachname"].'</td>
+        <td class="ort">'.$row["ort"].' </td>
     </tr>
     ';
     }

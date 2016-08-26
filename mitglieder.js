@@ -131,21 +131,21 @@ $(document).ready(function(){
         }
     });
 
-    //------------- Mitglieder hinzufügen Ende -------------------------//
+    //------------- Mitgliederlist -------------------------//
 
 
     // Mitglieder anzeigen
-    function showData()
+    function displayMitgliederListe()
     {
         $.ajax({
-            url:"api/mitglied/show.php",
+            url:"api/mitglied/show-list.php",
             method:"POST",
             success:function(data){
-                $('#showData').html(data);
+                $('#mitgliederliste').html(data);
             }
         });
     }
-    showData();
+    displayMitgliederListe();
 
     // Mitglied suchen
     $('#search_text').keyup(function(){
@@ -159,19 +159,15 @@ $(document).ready(function(){
                 dataType:"text",
                 success:function(data)
                 {
-                    $('#showData').html(data);
+                    $('#mitgliederliste').html(data);
                 }
             });
         }
         else
         {
-            showData();
+            displayMitgliederListe();
         }
     });
-
-
-
-
 
 
 
@@ -242,7 +238,6 @@ $(document).ready(function(){
             success:function(data)
             {
                 alert(data);
-                showData();
 
                 $('.benutzerdaten').removeClass('edit');
                 $('#editMitglied').removeClass('hide');

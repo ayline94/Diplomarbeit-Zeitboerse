@@ -1,5 +1,7 @@
 <?php include('header.php'); ?>
 
+<div class="row">
+
     <div class="column small-12">
         <div class="input-group">
             <button class="input-group-label">Suche</button>
@@ -7,8 +9,10 @@
         </div>
 
         <h2>Mitgliederliste</h2>
-        <div id="showData"></div>
+        <div id="mitgliederliste"></div>
     </div>
+
+</div>
 
 
 

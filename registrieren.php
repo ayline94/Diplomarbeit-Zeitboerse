@@ -53,10 +53,4 @@
     </div>
 
 
-    <div class="column small-12">
-        <h2>Mitgliederliste</h2>
-        <div id="showData"></div>
-    </div>
-
-
 <?php include('footer.php'); ?>
