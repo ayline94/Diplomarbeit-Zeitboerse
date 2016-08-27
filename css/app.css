@@ -7,6 +7,20 @@
 h2 {
     display: inline-block;
 }
+/* Datepicker */
+.ui-datepicker-header {
+    background-color: #ffffff;
+    border: solid 1px #efefef;
+    border-bottom: none;
+}
+
+.ui-datepicker-month, .ui-datepicker-year{
+    width: 50%;
+}
+
+.ui-datepicker-next, .ui-datepicker-prev {
+    display: none;
+}
 
 
 /* Mitglieder */

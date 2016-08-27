@@ -28,7 +28,7 @@
         <label for="passwort">Passwort</label>
         <input type="password" id="passwort">
         <label for="geburtsdatum">Geburtsdatum</label>
-        <input type="date" id="geburtsdatum" placeholder="0000-00-00">
+        <input type="text" id="geburtsdatum">
         <label for="strasse">Strasse & Hausnummer</label>
         <input type="text" id="strasse">
         <label for="plz">PLZ</label>
@@ -51,14 +51,5 @@
         </div>
 
     </div>
-
-<<<<<<< HEAD
-    <div class="column small-12">
-        <h2>Mitgliederliste</h2>
-        <div id="showData"></div>
-    </div>
-
-=======
->>>>>>> 8cc120b210f551e5e4b943b37f7b3d45f51b7356
 
 <?php include('footer.php'); ?>

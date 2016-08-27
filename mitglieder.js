@@ -68,6 +68,7 @@ $(document).ready(function(){
         var ort = $('#ort').val();
         var profilbild = $('.profilbild').data("path");
 
+
         $.ajax({
             url:"api/mitglied/insert.php",
             method:"POST",
@@ -86,7 +87,10 @@ $(document).ready(function(){
             success:function(data)
             {
                 alert(data);
-                showData();
+                if(data=='Ihre Registrierung war erfolgreich'){
+                    $("body").load("index.php").hide().fadeIn(1500);
+
+                }
             }
 
         })
@@ -300,6 +304,7 @@ $(document).ready(function(){
 
 //----------- Allgemeine Funktionen------------------------//
 
+// Parameter von URL auslesen
 function getParam(param) {
     location.search.substr(1)
         .split("&")
@@ -308,3 +313,21 @@ function getParam(param) {
         });
     return param
 }
+
+// Datepicker
+$( function() {
+    $( "#geburtsdatum" ).datepicker({
+        dateFormat: "dd.mm.yy",
+        firstDay: 1,
+        maxDate: "0",
+        monthNames: [ "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember" ],
+        monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez" ],
+        dayNames: [ "Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag" ],
+        dayNamesMin: [ "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa" ],
+        changeMonth: true,
+        changeYear: true,
+        showAnim:"slide"
+
+    });
+} );
+

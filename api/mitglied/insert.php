@@ -2,6 +2,7 @@
 include ("../connect.php");
 
 // Felder prüfen
+
 if($_POST["vorname"] == '' || $_POST["nachname"] == '' || $_POST["email"] == '' || $_POST["passwort"] == '' || $_POST["geburtsdatum"] == '' || $_POST["strasse"] == '' || $_POST["plz"] == '' || $_POST["ort"] == '')
 {
     echo "Bitte alle Felder ausfüllen";
@@ -15,18 +16,17 @@ if($_POST["profilbild_pfad"] == '')
     return false;
 }
 
-
-
-
 // Felder definieren oder bearbeiten
-$email = mysqli_real_escape_string($connect, $_POST["email"]); // unterschied herausfinden
-$email1 = $_POST["email"]; // Unterschied herausfinden
-
+$email1 = $_POST["email"];
 $passwort = md5(mysqli_real_escape_string($connect, $_POST["passwort"])); // Passwort verschlüsseln
 $profilbild = $_POST["profilbild_pfad"];
 
+$datum = new DateTime($_POST["geburtsdatum"]);
+$geburtsdatum = $datum->format('Y-m-d');
+
+
 // Felder in Datenbank schreiben
-$sql = "INSERT INTO mitglieder(vorname, nachname, email, passwort, profilbild_pfad, geburtsdatum, strasse, plz, ort) VALUES('".$_POST["vorname"]."', '".$_POST["nachname"]."', '".$email."', '".$passwort."', '".$profilbild."', '".$_POST["geburtsdatum"]."', '".$_POST["strasse"]."', '".$_POST["plz"]."', '".$_POST["ort"]."')";
+$sql = "INSERT INTO mitglieder(vorname, nachname, email, passwort, profilbild_pfad, geburtsdatum, strasse, plz, ort) VALUES('".$_POST["vorname"]."', '".$_POST["nachname"]."', '".$email."', '".$passwort."', '".$profilbild."', '".$geburtsdatum."', '".$_POST["strasse"]."', '".$_POST["plz"]."', '".$_POST["ort"]."')";
 
 // Rückmeldung Benutzer
 if(mysqli_query($connect, $sql))
