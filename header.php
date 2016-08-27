@@ -1,10 +1,12 @@
-<?php
+<!-- php nicht vergessen
+
 session_start();
 if(!isset($_SESSION["email"]))
 {
     header("location: index.php");
 }
 ?>
+-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -15,6 +17,10 @@ if(!isset($_SESSION["email"]))
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="mitglieder.js"></script>
+    <script src="angebot.js"></script>
+    <?php
+        include("api/angebot/functions.php");
+    ?>
 
 </head>
 
