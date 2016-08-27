@@ -14,8 +14,6 @@ if(!isset($_SESSION["email"]))
     <title>Zeitbörse Gemeinschaft Rheintal</title>
     <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="mitglieder.js"></script>
 
 </head>
 

@@ -53,7 +53,7 @@ $(document).ready(function(){
     });
 
 
-    //------------- Mitglieder hinzufügen-------------------------//
+    //------------- Mitglieder registrieren-------------------------//
 
     $(document).on('click', '#btn_add_mitglied', function(){
 
