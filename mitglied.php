@@ -1,4 +1,12 @@
-<?php include('header.php');?>
+<?php include('header.php'); ?>
+
+<?php include('api/mitglied/functions.php');
+
+if(!isset($_GET['id']))
+{
+    header("location: ?id=".getId($_SESSION['email']));
+}
+?>
 
 <div class="row">
 

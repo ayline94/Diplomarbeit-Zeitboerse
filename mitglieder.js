@@ -173,27 +173,21 @@ $(document).ready(function(){
 
 
     // Detailansicht Mitglied anzeigen
-    $(document).on('click', '#openMitglied', function(){
-        var id = $(this).parent().parent().data('id');
-        alert(id);
-
-
-    });
-
-
-
-    // Detailansicht Mitglied anzeigen
-    function showMitgliedDetail()
+    function showMitgliedDetail(id)
     {
         $.ajax({
             url:"api/mitglied/show-detail.php",
-            method:"POST",
+            method:"GET",
+            data: {
+                id:id
+
+            },
             success:function(data){
                 $('#showMitgliedDetail').html(data);
             }
         });
     }
-    showMitgliedDetail();
+    showMitgliedDetail(getParam('id'));
 
     //-------- Benutzerkonto -----------------//
 
@@ -302,3 +296,15 @@ $(document).ready(function(){
 
 
 });
+
+
+//----------- Allgemeine Funktionen------------------------//
+
+function getParam(param) {
+    location.search.substr(1)
+        .split("&")
+        .some(function(item) { // returns first occurence and stops
+            return item.split("=")[0] == param && (param = item.split("=")[1])
+        });
+    return param
+}

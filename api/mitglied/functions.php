@@ -14,8 +14,6 @@ function getId($email){
 }
 
 
-
-
 // Funktion um über ID an Mitglieder Daten zu gelangen
 function getUserData($id){
 
@@ -50,9 +48,6 @@ function userExists($id)
     else
         return false;
 
-
 }
-
-
 
 ?>

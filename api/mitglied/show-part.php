@@ -25,7 +25,8 @@ $output .= '
         <td class="vorname">'.$row["vorname"].'</td>
         <td class="nachname">'.$row["nachname"].'</td>
         <td class="ort">'.$row["ort"].' </td>
-        <td><button class="button" id="openMitglied">Detail</button></td>
+        <td class="link button" id="openMitglied"><a href="mitglied.php?id='. $row["id"] .'">Detail</a></td>
+
     </tr>
     ';
     }
