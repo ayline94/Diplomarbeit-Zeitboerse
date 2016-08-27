@@ -52,10 +52,13 @@
 
     </div>
 
+<<<<<<< HEAD
     <div class="column small-12">
         <h2>Mitgliederliste</h2>
         <div id="showData"></div>
     </div>
 
+=======
+>>>>>>> 8cc120b210f551e5e4b943b37f7b3d45f51b7356
 
 <?php include('footer.php'); ?>

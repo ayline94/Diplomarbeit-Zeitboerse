@@ -1,16 +1,14 @@
 <?php
 session_start();
+
 include ("../connect.php");
 require("functions.php");
 
-if(isset($_SESSION['email'])):
-
 // Benutzerdaten von aktueller Session anzeigen
-
-$id = $_GET['id'];
+$id = getId($_SESSION['email']);
 $mitgliederData = getUserData($id);
 
-
+$id = $mitgliederData['id'];
 
 
 // Tabellen mit Inhalt ausgeben
@@ -52,7 +50,6 @@ $output .= '
             <td>Ort</td>
             <td class="ort benutzerdaten">'.$mitgliederData["ort"].'</td>
         </tr>
-
     </table>
 
 </div>
@@ -65,8 +62,10 @@ $output .= '
 // Tabelle ausgeben
 echo $output;
 
-endif;
 
 mysqli_close($connect);
+
+
+
 
 ?>

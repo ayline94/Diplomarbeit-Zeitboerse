@@ -131,21 +131,21 @@ $(document).ready(function(){
         }
     });
 
-    //------------- Mitglieder hinzufügen Ende -------------------------//
+    //------------- Mitgliederliste -------------------------//
 
 
     // Mitglieder anzeigen
-    function showData()
+    function displayMitgliederListe()
     {
         $.ajax({
-            url:"api/mitglied/show.php",
+            url:"api/mitglied/show-list.php",
             method:"POST",
             success:function(data){
-                $('#showData').html(data);
+                $('#mitgliederliste').html(data);
             }
         });
     }
-    showData();
+    displayMitgliederListe();
 
     // Mitglied suchen
     $('#search_text').keyup(function(){
@@ -159,38 +159,51 @@ $(document).ready(function(){
                 dataType:"text",
                 success:function(data)
                 {
-                    $('#showData').html(data);
+                    $('#mitgliederliste').html(data);
                 }
             });
         }
         else
         {
-            showData();
+            displayMitgliederListe();
         }
     });
 
-
-
-
-
-
-
-
-    //-------- Mitglieder Detailansicht -----------------//
+    //-------- Mitglied Detailansicht -----------------//
 
 
     // Detailansicht Mitglied anzeigen
-    function showMitgliedDetail()
+    function showMitgliedDetail(id)
     {
         $.ajax({
             url:"api/mitglied/show-detail.php",
-            method:"POST",
+            method:"GET",
+            data: {
+                id:id
+
+            },
             success:function(data){
                 $('#showMitgliedDetail').html(data);
             }
         });
     }
-    showMitgliedDetail();
+    showMitgliedDetail(getParam('id'));
+
+    //-------- Benutzerkonto -----------------//
+
+
+    // Detailansicht Mitglied anzeigen
+    function showUser()
+    {
+        $.ajax({
+            url:"api/mitglied/show-user.php",
+            method:"POST",
+            success:function(data){
+                $('#showUser').html(data);
+            }
+        });
+    }
+    showUser();
 
 
     // Detailansicht Mitglied - Bearbeitungsmodus
@@ -242,7 +255,6 @@ $(document).ready(function(){
             success:function(data)
             {
                 alert(data);
-                showData();
 
                 $('.benutzerdaten').removeClass('edit');
                 $('#editMitglied').removeClass('hide');
@@ -284,3 +296,15 @@ $(document).ready(function(){
 
 
 });
+
+
+//----------- Allgemeine Funktionen------------------------//
+
+function getParam(param) {
+    location.search.substr(1)
+        .split("&")
+        .some(function(item) { // returns first occurence and stops
+            return item.split("=")[0] == param && (param = item.split("=")[1])
+        });
+    return param
+}

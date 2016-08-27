@@ -3,7 +3,7 @@
 <div class="row">
 
     <div class="small-12">
-        <h2>Mitglied Detailansicht</h2>
+        <h2>Benutzerkonto</h2>
         <button id="editMitglied" class="button">bearbeiten</button>
         <button id="saveMitglied" class="button hide">Änderungen speichern</button>
         <button id="deleteMitglied" class="button hide alert">Account Löschen</button>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="row" id="showMitgliedDetail">
+<div class="row" id="showUser">
 
 </div>
 
