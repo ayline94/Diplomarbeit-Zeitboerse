@@ -4,7 +4,7 @@
 //ini_set('display_errors', true);
 
 // Verbindung zu DB herstellen
-$connect = mysqli_connect("localhost","root","root","zeitboerse");
+$connect = mysqli_connect("localhost","root","root","zeitboerse01");
 
 // Verbindung prüfen
 if (mysqli_connect_errno())

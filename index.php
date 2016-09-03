@@ -25,8 +25,6 @@ $_SESSION = array();
     <div class="column small-12">
         <h2>Login</h2>
 
-
-
             <div id="box">
                 <br />
              <form method="post">

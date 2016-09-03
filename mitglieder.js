@@ -331,3 +331,9 @@ $( function() {
     });
 } );
 
+//Facebook Sharing
+$(document).on('click', '#facebookShare', function(){
+    var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+    window.open(sharer + location.href,'sharer', 'width=226,height=236');
+});
+
