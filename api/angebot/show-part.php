@@ -22,7 +22,7 @@ $output .= '
     <tr class="angebot angebot-'.$id.'" data-id="'.$id.'" >
         <td class="id">'.$row["id"].'</td>
         <td class="titel">'.$row["titel"].'</td>
-        <td class="link"> <a class="button" href="angebot.php?id='. $id .'">Detail</a></td>
+        <td class="link"> <a class="button" href="angebot-detail.php?id='. $id .'">Detail</a></td>
 
     </tr>
     ';
