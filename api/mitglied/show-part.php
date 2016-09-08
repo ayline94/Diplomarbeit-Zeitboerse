@@ -45,7 +45,7 @@ $output .= '
     else
     {
     $output .= '<tr>
-        <td colspan="3">Keine Mitglieder gefunden</td>
+        <td colspan="4">Keine Mitglieder gefunden</td>
     </tr>';
     }
 

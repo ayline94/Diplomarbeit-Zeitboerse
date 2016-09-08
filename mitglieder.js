@@ -178,6 +178,31 @@ $(document).ready(function(){
         }
     });
 
+    // Mitgliederliste filtern
+
+    $('#filter_ort').change(function(){
+        var ort_id = $(this).val();
+        if(ort_id != 0) {
+            $.ajax({
+                url: "api/mitglied/filter-list.php",
+                method: "POST",
+                data: {ort_id: ort_id},
+                dataType: "text",
+                success: function (data) {
+                    $('#mitgliederliste').html(data);
+                }
+            });
+        }
+        else
+        {
+            // Alle Anzeigen
+            displayMitgliederListe();
+        }
+    });
+
+
+
+
     //-------- Mitglied Detailansicht -----------------//
 
 

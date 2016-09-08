@@ -18,6 +18,7 @@ if(!isset($_SESSION["email"]))
 </head>
 
 <body>
+<?php include('api/functions.php'); ?>
 
 <div class="row">
 
