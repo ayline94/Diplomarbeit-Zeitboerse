@@ -5,9 +5,9 @@ $output = '';
 $output .= '
 <table>
     <tr>
-        <th width="20%">Id</th>
-        <th width="40%">Kategorie</th>
-        <th width="40%">Beschreibung</th>
+        <th width="30%">Id</th>
+        <th width="30%">Titel</th>
+        <th width="30%">Detail</th>
     </tr>';
 
     // Mitglieder ausgeben
@@ -15,12 +15,15 @@ $output .= '
     {
     while($row = mysqli_fetch_array($result))
     {
+
+    $id = $row['id'];
+
     $output .= '
-    <tr>
-        <td>'.$row["id"].'</td>
-        <td class="kategorie" data-id1="'.$row["id"].'" contenteditable>'.$row["kategorie"].'</td>
-        <td class="beschreibung" data-id2="'.$row["id"].'" contenteditable>'.$row["beschreibung"].'</td>
-        <td><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="alert button btn_delete">x</button></td>
+    <tr class="angebot angebot-'.$id.'" data-id="'.$id.'" >
+        <td class="id">'.$row["id"].'</td>
+        <td class="titel">'.$row["titel"].'</td>
+        <td class="link"> <a class="button" href="angebot.php?id='. $id .'">Detail</a></td>
+
     </tr>
     ';
     }
@@ -30,7 +33,7 @@ $output .= '
     else
     {
     $output .= '<tr>
-        <td colspan="3">Keine Mitglieder gefunden</td>
+        <td colspan="3">Keine Angebote gefunden</td>
     </tr>';
     }
 
