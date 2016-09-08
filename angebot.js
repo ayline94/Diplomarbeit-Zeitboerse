@@ -16,6 +16,28 @@ $(document).ready(function(){
     }
     displayAngebotListe();
 
+    // Angebot suchen
+    $('#search_angebot').keyup(function(){
+        var txt = $(this).val();
+        if(txt != '')
+        {
+            $.ajax({
+                url:"api/angebot/search.php",
+                method:"post",
+                data:{search:txt},
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#angebotsliste').html(data);
+                }
+            });
+        }
+        else
+        {
+            displayAngebotListe();
+        }
+    });
+
 
     //-------- Angebot Detailansicht -----------------//
 

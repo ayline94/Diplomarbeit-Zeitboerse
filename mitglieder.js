@@ -152,7 +152,7 @@ $(document).ready(function(){
     displayMitgliederListe();
 
     // Mitglied suchen
-    $('#search_text').keyup(function(){
+    $('#search_mitglied').keyup(function(){
         var txt = $(this).val();
         if(txt != '')
         {
