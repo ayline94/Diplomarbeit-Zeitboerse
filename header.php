@@ -23,7 +23,6 @@ if(!isset($_SESSION["email"]))
 
     <ul class="menu">
         <li><a href="angebot.php">Angebot</a></li>
-        <li><a href="suchanfrage.php">Suchanfrage</a></li>
         <li><a href="mitglieder.php">Mitgliederliste</a></li>
         <li><a href="benutzer.php">Benutzeraccount</a></li>
         <li><a href="logout.php">Abmelden</a></li>
