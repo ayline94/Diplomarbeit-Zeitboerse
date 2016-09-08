@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<?php include('api/functions.php'); ?>
 <div class="row">
 
     <div class="column small-12">
@@ -30,8 +31,12 @@
         <input type="text" id="strasse">
         <label for="plz">PLZ</label>
         <input type="text" id="plz">
-        <label for="ort">Ort</label>
-        <input type="text" id="ort">
+        <label for="ort">Ort auswählen</label>
+            <select name="country" id="ort">
+                <option value="">Ort auswählen</option>
+                <?php echo ort_laden($connect); ?>
+            </select>
+
 
         <button type="button" name="btn_add_mitglied" id="btn_add_mitglied" class="success button">hinzufügen</button>
     </div>

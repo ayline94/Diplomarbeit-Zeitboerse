@@ -1,14 +1,18 @@
 <?php
 
+
+
+
+
 // Tabellen Kopfzeile ausgeben
 $output = '';
 $output .= '
 <table>
     <tr>
-        <th width="20%">Id</th>
-        <th width="40%">Vorname</th>
-        <th width="40%">Nachname</th>
-        <th width="40%">Ort</th>
+        <th width="10%">Id</th>
+        <th width="30%">Vorname</th>
+        <th width="30%">Nachname</th>
+        <th width="30%">Ort</th>
     </tr>';
 
     // Mitglieder ausgeben
@@ -17,6 +21,11 @@ $output .= '
     while($row = mysqli_fetch_array($result))
     {
 
+    // Ort von Tabelle holen
+    $sql = "SELECT * FROM ort WHERE id = '".$row['ort_id']."'   ";
+    $result_ort = mysqli_query($connect, $sql);
+    $rowOrt = mysqli_fetch_array($result_ort);
+
     $id = $row['id'];
 
     $output .= '
@@ -24,7 +33,7 @@ $output .= '
         <td class="profilbild" ><img class="profilbild" src=" '.$row["profilbild_pfad"].' "></td>
         <td class="vorname">'.$row["vorname"].'</td>
         <td class="nachname">'.$row["nachname"].'</td>
-        <td class="ort">'.$row["ort"].' </td>
+        <td class="ort">'.$rowOrt["name"].' </td>
         <td class="link"> <a class="button" href="mitglied.php?id='. $id .'">Detail</a></td>
 
     </tr>

@@ -2,7 +2,7 @@
 session_start();
 
 include ("../connect.php");
-require("functions.php");
+require("../functions.php");
 
 // Benutzerdaten von aktueller Session anzeigen
 $id = getId($_SESSION['email']);

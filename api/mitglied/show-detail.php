@@ -1,7 +1,7 @@
 <?php
 session_start();
 include ("../connect.php");
-require("functions.php");
+require("../functions.php");
 
 if(isset($_SESSION['email'])):
 
@@ -11,6 +11,10 @@ $id = $_GET['id'];
 $mitgliederData = getUserData($id);
 
 
+// Ort von Tabelle holen
+$sql = "SELECT * FROM ort WHERE id = '".$mitgliederData['ort_id']."'";
+$result_ort = mysqli_query($connect, $sql);
+$rowOrt = mysqli_fetch_array($result_ort);
 
 
 // Tabellen mit Inhalt ausgeben
@@ -50,7 +54,7 @@ $output .= '
         </tr>
         <tr>
             <td>Ort</td>
-            <td class="ort benutzerdaten">'.$mitgliederData["ort"].'</td>
+            <td class="ort benutzerdaten">'.$rowOrt["name"].'</td>
         </tr>
 
     </table>

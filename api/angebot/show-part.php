@@ -1,7 +1,8 @@
 <?php
 
 // Tabellen Kopfzeile ausgeben
-$output .= '
+$output_html= '';
+$output_html .= '
 <table>
     <tr>
         <th width="30%">Id</th>
@@ -17,7 +18,7 @@ $output .= '
 
     $id = $row['id'];
 
-    $output .= '
+    $output_html .= '
     <tr class="angebot angebot-'.$id.'" data-id="'.$id.'" >
         <td class="id">'.$row["id"].'</td>
         <td class="titel">'.$row["titel"].'</td>
@@ -31,14 +32,13 @@ $output .= '
     // Meldung wenn keine Datensätze gefunden werden
     else
     {
-    $output .= '<tr>
+    $output_html .= '<tr>
         <td colspan="3">Keine Angebote gefunden</td>
     </tr>';
     }
 
     // Tabelle schliessen & ausgeben
-    $output .= '</table>';
-echo $output;
+    $output_html .= '</table>';
+echo $output_html;
 
 
-mysqli_close($connect);

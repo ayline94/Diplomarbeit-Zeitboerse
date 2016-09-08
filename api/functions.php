@@ -1,5 +1,5 @@
 <?php
-include ("../connect.php");
+include("connect.php");
 
 
 // Funktion um über email an Id zu gelangen
@@ -29,7 +29,7 @@ function getUserData($id){
         $array['geburtsdatum'] = $row['geburtsdatum'];
         $array['strasse'] = $row['strasse'];
         $array['plz'] = $row['plz'];
-        $array['ort'] = $row['ort'];
+        $array['ort_id'] = $row['ort_id'];
         $array['profilbild_pfad'] = $row['profilbild_pfad'];
     }
     return $array;
@@ -49,5 +49,24 @@ function userExists($id)
         return false;
 
 }
+
+
+//  Auswahlfenster Ort
+ function ort_laden($connect)
+ {
+     $output = '';
+     $sql = "SELECT * FROM ort ORDER BY name ASC ";
+     $result = mysqli_query($connect, $sql);
+     while($row = mysqli_fetch_array($result))
+     {
+         $output .= '<option value="'.$row["id"].'">'.$row["name"].'</option>';
+     }
+     return $output;
+ }
+
+
+
+
+
 
 ?>

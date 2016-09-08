@@ -1,6 +1,6 @@
 <?php
 include ("../connect.php");
-include ("../mitglied/functions.php");
+include("../functions.php");
 
 
 // Daten zu Angebot ID anzeigen

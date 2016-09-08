@@ -30,7 +30,7 @@ $ort = mysqli_real_escape_string($connect, $_POST["ort"]);
 
 // Felder in Datenbank schreiben
 $sql = "INSERT
-        INTO mitglieder(vorname, nachname, email, passwort, profilbild_pfad, geburtsdatum, strasse, plz, ort)
+        INTO mitglieder(vorname, nachname, email, passwort, profilbild_pfad, geburtsdatum, strasse, plz, ort_id)
         VALUES('".$vorname."', '".$nachname."', '".$email."', '".$passwort."', '".$profilbild."', '".$geburtsdatum."', '".$strasse."', '".$plz."', '".$ort."')";
 
 // Rückmeldung Benutzer

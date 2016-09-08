@@ -2,14 +2,16 @@
 session_start();
 
 include ("../connect.php");
-require("functions.php");
+require("../functions.php");
 
 // Benutzerdaten von aktueller Session anzeigen
 $id = getId($_SESSION['email']);
 $mitgliederData = getUserData($id);
 
-$id = $mitgliederData['id'];
-
+// Ort von Tabelle holen
+$sql = "SELECT * FROM ort WHERE id = '".$mitgliederData['ort_id']."'   ";
+$result = mysqli_query($connect, $sql);
+$rowOrt = mysqli_fetch_array($result);
 
 // Benutzerinformationen ausgeben
 $output = '';
@@ -48,7 +50,7 @@ $output .= '
         </tr>
         <tr>
             <td>Ort</td>
-            <td class="ort benutzerdaten">'.$mitgliederData["ort"].'</td>
+            <td class="ort benutzerdaten">'.$rowOrt["name"].'</td>
         </tr>
     </table>
 

@@ -55,6 +55,9 @@ $(document).ready(function(){
 
     //------------- Mitglieder registrieren-------------------------//
 
+
+
+    // Formular Daten in DB schreiben
     $(document).on('click', '#btn_add_mitglied', function(){
 
         // Definition Felder
@@ -67,6 +70,8 @@ $(document).ready(function(){
         var plz = $('#plz').val();
         var ort = $('#ort').val();
         var profilbild = $('.profilbild').data("path");
+
+        alert(ort);
 
 
         $.ajax({
