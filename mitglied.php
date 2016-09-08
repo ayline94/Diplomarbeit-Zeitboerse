@@ -26,10 +26,7 @@ if(!isset($_GET['id']))
 
     <div class="column small-12">
         <h2>Angebote</h2><br>
-
-
-        <h2>Suchanfragen</h2>
-
+        <div id="showMitgliedAngebot"></div>
 
     </div>
 

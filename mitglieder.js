@@ -190,6 +190,18 @@ $(document).ready(function(){
                 $('#showMitgliedDetail').html(data);
             }
         });
+
+        $.ajax({
+            url:"api/mitglied/show-detail-angebot.php",
+            method:"GET",
+            data: {
+                id:id
+
+            },
+            success:function(data){
+                $('#showMitgliedAngebot').html(data);
+            }
+        });
     }
     showMitgliedDetail(getParam('id'));
 
@@ -206,6 +218,15 @@ $(document).ready(function(){
                 $('#showUser').html(data);
             }
         });
+
+        $.ajax({
+            url:"api/mitglied/show-user-angebot.php",
+            method:"POST",
+            success:function(data){
+                $('#listeAngebotUser').html(data);
+            }
+        });
+
     }
     showUser();
 

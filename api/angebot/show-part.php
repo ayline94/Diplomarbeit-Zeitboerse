@@ -1,7 +1,6 @@
 <?php
 
 // Tabellen Kopfzeile ausgeben
-$output = '';
 $output .= '
 <table>
     <tr>
@@ -10,7 +9,7 @@ $output .= '
         <th width="30%">Detail</th>
     </tr>';
 
-    // Mitglieder ausgeben
+    // Angebote ausgeben
     if(mysqli_num_rows($result) > 0)
     {
     while($row = mysqli_fetch_array($result))

@@ -11,7 +11,7 @@ $mitgliederData = getUserData($id);
 $id = $mitgliederData['id'];
 
 
-// Tabellen mit Inhalt ausgeben
+// Benutzerinformationen ausgeben
 $output = '';
 $output .= '
  <div class="small-5 columns">
@@ -55,11 +55,6 @@ $output .= '
 </div>
     ';
 
-
-// Meldung wenn keine Datensätze gefunden werden
-
-
-// Tabelle ausgeben
 echo $output;
 
 

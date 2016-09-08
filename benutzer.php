@@ -22,9 +22,9 @@
     <div class="column small-12">
         <h2>Meine Angebote</h2>
         <button class="button">hinzufügen</button><button class="button">bearbeiten</button><button class="button">löschen</button>
+        <div id="listeAngebotUser"></div>
 
-
-        <h2>Meine Suchanfragen</h2>
+        <h2>Meine Merkliste</h2>
         <button class="button">hinzufügen</button><button class="button">bearbeiten</button><button class="button">löschen</button>
 
     </div>
