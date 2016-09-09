@@ -9,11 +9,17 @@ $output = '';
 $output .= '
 <table>
     <tr>
-        <th width="10%">Id</th>
-        <th width="30%">Vorname</th>
+        <th width="10%">Bild</th>
+        <th width="30%">Vorname
+            <select id="filter_vorname">
+                <option value="ASC">Aufsteigend</option>
+                <option value="DESC">Absteigend</option>
+                <option value="0">Sortierung Entfernen</option>
+            </select>
+        </th>
         <th width="30%">Nachname</th>
         <th width="30%">Ort</th>
-    </tr>';
+    </tr> ';
 
     // Mitglieder ausgeben
     if(mysqli_num_rows($result) > 0)

@@ -178,7 +178,7 @@ $(document).ready(function(){
         }
     });
 
-    // Mitgliederliste filtern
+    // Mitgliederliste ort filtern
 
     $('#filter_ort').change(function(){
         var ort_id = $(this).val();
@@ -196,6 +196,27 @@ $(document).ready(function(){
         else
         {
             // Alle Anzeigen
+            displayMitgliederListe();
+        }
+    });
+
+    // Vorname sortieren
+    $(document).on('change', '#filter_vorname', function(){
+        var sortierung_vorname = $(this).val();
+        if(sortierung_vorname != 0) {
+            $.ajax({
+                url: "api/mitglied/sort-list.php",
+                method: "POST",
+                data: {sortierung_vorname: sortierung_vorname},
+                dataType: "text",
+                success: function (data) {
+                    $('#mitgliederliste').html(data);
+                }
+            });
+        }
+        else
+        {
+            // Standardsortierung
             displayMitgliederListe();
         }
     });

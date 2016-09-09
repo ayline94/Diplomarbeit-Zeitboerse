@@ -46,4 +46,7 @@ th {text-align: left;}
 
 }
 
-/* Angebote */
+/* Filter Mitgliedliste */
+#filter_vorname {
+    width: 0px;
+}
