@@ -37,27 +37,16 @@ $output .= '
             <td class="nachname benutzerdaten">'.$mitgliederData["nachname"].'</td>
         </tr>
         <tr>
-            <td>Email</td>
-            <td class="email benutzerdaten">'.$mitgliederData["email"].'</td>
-        </tr>
-        <tr>
-            <td>Geburtsdatum</td>
-            <td class="geburtsdatum benutzerdaten">'.$mitgliederData["geburtsdatum"].'</td>
-        </tr>
-        <tr>
-            <td>Strasse & Hausnummer</td>
-            <td class="strasse benutzerdaten">'.$mitgliederData["strasse"].'</td>
-        </tr>
-        <tr>
-            <td>PLZ</td>
-            <td class="plz benutzerdaten">'.$mitgliederData["plz"].'</td>
-        </tr>
-        <tr>
             <td>Ort</td>
             <td class="ort benutzerdaten">'.$rowOrt["name"].'</td>
         </tr>
 
     </table>
+
+    <div id="map"></div>
+
+
+    <a class="button" href="mailto:'.$mitgliederData["email"].'">Mitglied kontaktieren</a>
 
 </div>
     ';

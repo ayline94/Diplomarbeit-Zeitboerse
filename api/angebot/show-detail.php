@@ -2,7 +2,6 @@
 include ("../connect.php");
 include("../functions.php");
 
-
 // Daten zu Angebot ID anzeigen
 
 $id = $_GET['id']; // ID von URL
@@ -16,6 +15,11 @@ if(mysqli_num_rows($result) > 0) {
 
     // über MitgliederID Daten von Tabelle Mitglieder holen
     $mitgliederData = getUserData($row["mitglieder_id"]);
+
+    // Ort von Tabelle holen
+    $sql = "SELECT * FROM ort WHERE id = '".$mitgliederData['ort_id']."'";
+    $result_ort = mysqli_query($connect, $sql);
+    $rowOrt = mysqli_fetch_array($result_ort);
 
 
 // Tabellen mit Inhalt ausgeben
@@ -44,7 +48,7 @@ if(mysqli_num_rows($result) > 0) {
         </tr>
         <tr>
             <td>Ort</td>
-            <td class="ort benutzerdaten">' . $mitgliederData["ort"] . '</td>
+            <td class="ort benutzerdaten">' . $rowOrt["name"] . '</td>
         </tr>
 
     </table>
