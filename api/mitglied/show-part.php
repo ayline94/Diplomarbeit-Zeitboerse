@@ -1,9 +1,6 @@
 <?php
 
 
-
-
-
 // Tabellen Kopfzeile ausgeben
 $output = '';
 $output .= '

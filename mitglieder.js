@@ -37,21 +37,6 @@ $(document).ready(function(){
         }
     });
 
-    // Mitglieder - Prüfen ob Email bereits vorhanden & gültig
-    $('#email').blur(function(){
-        var email = $(this).val();
-        $.ajax({
-            url:"api/mitglied/check.php",
-            method:"POST",
-            data:{email:email},
-            dataType:"text",
-            success:function(data)
-            {
-                $('#availability').html(data);
-            }
-        });
-    });
-
 
     //------------- Mitglieder registrieren-------------------------//
 
@@ -71,8 +56,6 @@ $(document).ready(function(){
         var ort = $('#ort').val();
         var profilbild = $('.profilbild').data("path");
 
-        alert(ort);
-
 
         $.ajax({
             url:"api/mitglied/insert.php",
@@ -86,7 +69,7 @@ $(document).ready(function(){
                 strasse:strasse,
                 plz:plz,
                 ort:ort,
-                profilbild_pfad:profilbild
+                profilbild:profilbild
             },
             dataType:"text",
             success:function(data)
@@ -325,7 +308,7 @@ $(document).ready(function(){
                 strasse:strasse,
                 plz:plz,
                 ort:ort
-                //profilbild_pfad:profilbild
+                //profilbild:profilbild
             },
             dataType:"text",
             success:function(data)
